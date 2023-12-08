@@ -1,9 +1,9 @@
-//const insert = require('../services/insert');
-//const update = require('../services/update');
-//const deleting = require('../services/delete');
+// const insert = require('../services/insert');
+// const update = require('../services/update');
+// const deleting = require('../services/delete');
 const insert_service = require('../services2/insert_service');
 const update_service = require('../services2/update_service');
-const delete_service = require('../services2/delete_service')
+const delete_service = require('../services2/delete_service');
 const reading = require('../services/read');
 
 const insertData = async (req, res) => {
@@ -30,7 +30,7 @@ const updateData = async (req, res) => {
         const location = JSON.stringify(req.body.location);
         console.log(req.body);
 
-        // const affectedRows = await update(store_id, storeName, location);
+        //const affectedRows = await update(store_id, storeName, location);
         const affectedRows = await update_service(store_id, storeName, location);
 
         if (affectedRows) {
@@ -48,7 +48,7 @@ const deleteData = async(req,res) => {
     try {
         const { store_id } = req.params;
 
-        // const affectedRows = await deleting(store_id);
+        //const affectedRows = await deleting(store_id);
         const affectedRows = await delete_service(store_id);
 
         if (affectedRows) {
